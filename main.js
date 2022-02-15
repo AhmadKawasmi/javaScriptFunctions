@@ -44,7 +44,7 @@ console.log(
     factorial(10));
 
 
-const speWord = function(str,value) {
+const speWord = function(str, value) {
     let key = ''
     for (let i = 0; str[i]; i++) {
         if (str[i] != '#') {
@@ -55,7 +55,7 @@ const speWord = function(str,value) {
 }
 
 console.log(
-    speWord('ahmad is ahmad #hello# ashjgd #ha#sd' , 'yesss')
+    speWord('ahmad is ahmad #hello# ashjgd #ha#sd', 'yesss')
 
 );
 
@@ -64,9 +64,32 @@ console.log(
 //     let key = ''
 //     for (let i = 0; str[i]; i++) {
 //         if (str[i] == '#') {
-            
+
 //         }
-        
+
 //     }
 // }    
 
+
+const replaceKey = function(str, value) {
+    let newStr = ''
+    let isReadingKey = false
+    let foundKey = false
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == '#') {
+            isReadingKey = !isReadingKey
+            foundKey = false
+        }
+        if (isReadingKey) {
+            if (!foundKey) {
+                newStr += value
+                foundKey = true
+            }
+
+        } else {
+            newStr += str[i] == '#' ? '' : str[i]
+        }
+    }
+    console.log(newStr);
+    return newStr
+}
